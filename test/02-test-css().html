@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      p {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>设置样式</h1>
+    <p>p</p>
+    <p>p</p>
+
+    <script src="../ucquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      console.log($('p').css('font-size'));
+      console.log($('p').css('fontSize'));
+      $('p').css('font-size', '18px');
+      $('p').css({"width": "200px", "height":"200px", "background-color": "green"})
+      $('p').css("border", "1px solid orange").css({"font-size": "30px"});
+    </script>
+  </body>
+</html>
