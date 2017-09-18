@@ -115,7 +115,17 @@
         });
       }
       return this;
-    }
+    },
+    //拙劣的模仿   添加  dbclick事件
+    dbclick: function(fn) {
+      for (var i = 0; i < this.length; i++) {
+        this[i].addEventListener('dbclick', function() {
+          fn.call(this);
+        });
+        return this;
+      }
+    },
+
   }
   //使ucQuery对象能够调用ucQuery.fn对象里面的所有方法
   ucQuery.fn.init.prototype = ucQuery.fn;
