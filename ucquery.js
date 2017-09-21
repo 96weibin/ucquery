@@ -125,6 +125,36 @@
         return this;
       }
     },
+    //拖拽事件
+    draggable : function(){
+      var self = this;
+      for(var i = 0; i < this.length; i++) {
+          (function(i){
+              var ofX = 0;
+              var ofY = 0;
+              var me = self[i];
+              me.addEventListener('mousedown', function(){
+                  event = event || window.event;
+                  if(event.offsetX) {
+                      ofX = event.offsetX;
+                      ofY = event.offsetY;
+                  }else{
+                      ofX = event.clientX - this.offsetLeft;
+                      ofY = event.clientY - this.offsetTop; 
+                  }
+                  document.addEventListener('mousemove',move);
+                  function move (event) {
+                      me.style.left = event.clientX - ofX + 'px';
+                      me.style.top = event.clientY - ofY + 'px';
+                  }
+                  document.addEventListener('mouseup',function(){
+                      document.removeEventListener('mousemove',move);
+                  })
+              })
+          }(i));
+      }
+      return this;
+  },
 
   }
   //使ucQuery对象能够调用ucQuery.fn对象里面的所有方法
