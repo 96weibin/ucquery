@@ -116,10 +116,10 @@
       }
       return this;
     },
-    //拙劣的模仿   添加  dbclick事件
-    dbclick: function(fn) {
+    //拙劣的模仿   添加  dblclick事件
+    dblclick: function(fn) {
       for (var i = 0; i < this.length; i++) {
-        this[i].addEventListener('dbclick', function() {
+        this[i].addEventListener('dblclick', function() {
           fn.call(this);
         });
         return this;
